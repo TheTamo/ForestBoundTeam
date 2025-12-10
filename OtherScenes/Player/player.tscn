@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cf2bsk8kx0mnx"]
+[gd_scene load_steps=13 format=3 uid="uid://cf2bsk8kx0mnx"]
 
 [ext_resource type="Texture2D" uid="uid://3acu5hfu86rq" path="res://Assets/UsingAssets/SpriteSheets/Player_Sword.png" id="1_mqy7t"]
+[ext_resource type="Texture2D" uid="uid://d2wkihdx5mgl4" path="res://Assets/UsingAssets/SpriteSheets/Player_Normal.png" id="2_2b8sk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ooqsh"]
 radius = 9.0
@@ -21,6 +22,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2b8sk")]
+}
 
 [sub_resource type="Animation" id="Animation_n7mm4"]
 resource_name = "Walk"
@@ -38,6 +51,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [9, 10, 11, 12, 13, 14, 15, 16, 17]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2b8sk")]
+}
 
 [sub_resource type="Animation" id="Animation_n1wxv"]
 resource_name = "Jump"
@@ -53,6 +78,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [27, 28]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2b8sk")]
 }
 
 [sub_resource type="Animation" id="Animation_ugeek"]
@@ -70,9 +107,46 @@ tracks/0/keys = {
 "update": 1,
 "values": [36]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2b8sk")]
+}
 
 [sub_resource type="Animation" id="Animation_hsgqj"]
 resource_name = "Dead"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2b8sk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.36666667, 0.56666666, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [54, 56, 57, 58, 59]
+}
 
 [sub_resource type="Animation" id="Animation_uha7h"]
 length = 0.001
