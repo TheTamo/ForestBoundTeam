@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cf2bsk8kx0mnx"]
+[gd_scene load_steps=19 format=3 uid="uid://cf2bsk8kx0mnx"]
 
 [ext_resource type="Texture2D" uid="uid://3acu5hfu86rq" path="res://Assets/UsingAssets/SpriteSheets/Player_Sword.png" id="1_mqy7t"]
+[ext_resource type="Script" uid="uid://xbv8gxrs43w5" path="res://Scripts/Player/MainPlayer.gd" id="1_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://d2wkihdx5mgl4" path="res://Assets/UsingAssets/SpriteSheets/Player_Normal.png" id="2_2b8sk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ooqsh"]
@@ -363,6 +364,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqy7t"]
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_xpcdj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2, -14)
