@@ -13,10 +13,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	movment(delta)
+	movement(delta)
 	
 
-func movment(delta):
+func movement(delta):
 	input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	if input != 0:
 		if input > 0:
