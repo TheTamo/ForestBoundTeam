@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://cf2bsk8kx0mnx"]
+
+[ext_resource type="Texture2D" uid="uid://d2wkihdx5mgl4" path="res://Assets/UsingAssets/SpriteSheets/Player_Normal.png" id="1_mqy7t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ooqsh"]
+radius = 9.0
+height = 26.0
+
+[sub_resource type="Animation" id="Animation_2b8sk"]
+resource_name = "Idle"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6333333, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_n7mm4"]
+resource_name = "Walk"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10269565, 0.22482021, 0.36666667, 0.53333336, 0.6666667, 0.8333333, 0.96666664, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_n1wxv"]
+resource_name = "Jump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [27, 28]
+}
+
+[sub_resource type="Animation" id="Animation_ugeek"]
+resource_name = "Fall"
+
+[sub_resource type="Animation" id="Animation_hsgqj"]
+resource_name = "Dead"
+
+[sub_resource type="Animation" id="Animation_uha7h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t54wg"]
+_data = {
+&"Dead": SubResource("Animation_hsgqj"),
+&"Fall": SubResource("Animation_ugeek"),
+&"Idle": SubResource("Animation_2b8sk"),
+&"Jump": SubResource("Animation_n1wxv"),
+&"RESET": SubResource("Animation_uha7h"),
+&"Walk": SubResource("Animation_n7mm4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqy7t"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -14)
+texture = ExtResource("1_mqy7t")
+hframes = 9
+vframes = 11
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -3)
+shape = SubResource("CapsuleShape2D_ooqsh")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t54wg")
+}
+autoplay = "Idle"
+
+[node name="Sword" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
+position = Vector2(28, -6)
+shape = SubResource("RectangleShape2D_mqy7t")
+debug_color = Color(0.89869046, 0.00018097162, 0.7697709, 0.41960785)
